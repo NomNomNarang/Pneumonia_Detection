@@ -1,10 +1,10 @@
-🫁 Pneumonia Detection using Hybrid Deep Learning (EfficientNet + Classical Features)
-
+**🫁 Pneumonia Detection using Hybrid Deep Learning (EfficientNet + Classical Features)
+**
 
 📘 Overview
 
 Pneumonia is a severe lung infection that can be life-threatening if not diagnosed early.
-Chest X-rays are the most widely used tool for detection — but manual interpretation is time-consuming and prone to errors.
+Chest X-rays are the most widely used tool for detection —but manual interpretation is time-consuming and prone to errors.
 
 This project presents a Hybrid Deep Learning Model combining:
 

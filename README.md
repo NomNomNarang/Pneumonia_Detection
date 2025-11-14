@@ -1,231 +1,166 @@
-🌟 Hybrid Pneumonia Detection Model using EfficientNet + Classical Features
-
-Deep Learning + Handcrafted Texture Features for Chest X-ray Classification
+🫁 Pneumonia Detection using Hybrid Deep Learning (EfficientNet + Classical Features)
 
 
-📚 Table of Contents
+📘 Overview
 
-Overview
+Pneumonia is a severe lung infection that can be life-threatening if not diagnosed early.
+Chest X-rays are the most widely used tool for detection — but manual interpretation is time-consuming and prone to errors.
 
-Dataset
+This project presents a Hybrid Deep Learning Model combining:
 
-Model Architecture
+EfficientNetB0 (pretrained CNN) for extracting deep visual features
 
-Features Used
+Handcrafted Classical Features (GLCM texture + intensity features) for enhancing interpretability
 
-Setup & Installation
+Feature Fusion to improve pneumonia detection performance
 
-How to Use
+The goal is to build a robust and explainable diagnostic tool for binary classification:
+Normal vs Pneumonia.
 
-Training
+📊 Dataset
 
-Evaluation
+This project uses the well-known Chest X-Ray Pneumonia Dataset from Kaggle.
 
-Visualizations
+🔗 Dataset Link:
+https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
 
-Results
-
-Folder Structure
-
-Future Work
-
-License
-
-Citation
-
-🧠 Overview
-
-This project presents a hybrid deep learning model for detecting Pneumonia from chest X-ray images.
-Unlike traditional CNN-only approaches, this model combines:
-
-✔ Deep features
-
-Extracted using EfficientNet-B0, pretrained on ImageNet.
-
-✔ Classical features
-
-Based on GLCM texture, entropy, and intensity statistics.
-
-These two feature sets are concatenated to create a more expressive representation of lung structure abnormalities.
-
-Hybrid models often perform better in medical imaging because handcrafted texture features capture local patterns that CNNs may ignore.
-
-📂 Dataset
-
-We use the Kaggle public dataset:
-
-📌 Chest X-Ray Images (Pneumonia)
-🔗 https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
-
-Dataset Split
+Dataset Distribution
 Split	NORMAL	PNEUMONIA	Total
 Train	1341	3875	5216
 Val	8	8	16
 Test	234	390	624
-Folder Structure (Expected)
-chest_xray/
-│── train/
-│    ├── NORMAL
-│    └── PNEUMONIA
-│── val/
-│    ├── NORMAL
-│    └── PNEUMONIA
-│── test/
-     ├── NORMAL
-     └── PNEUMONIA
 
-🏗 Model Architecture
-Input Image → EfficientNetB0 (Frozen Layers)
-                        ↓
-          GlobalAveragePooling2D
-                        ↓
-               Deep Feature Vector
-                        ↓
-Handcrafted Texture Features (11D vector)
-                        ↓
-             Concatenation Layer
-                        ↓
-                Dense (128) + Dropout
-                        ↓
-                 Sigmoid Output
+The dataset shows significant class imbalance, which is handled using class weights.
 
+🧠 Methodology
+🔹 1. Data Preprocessing
 
-A complete diagram can be added if needed — ask: “Generate architecture diagram”.
+Image resizing to 224×224
 
-🔍 Features Used
-Deep Features
+Grayscale → RGB conversion
 
-✔ EfficientNet-B0 feature maps
-✔ Transfer learning (no retraining base layers)
+Normalization
 
-Classical Features (11 total)
+EfficientNet preprocessing
 
-Mean pixel value
+🔹 2. Classical Feature Extraction
 
-Standard deviation
+Using scikit-image, the following 11 features are extracted:
 
-Min / Max
+Mean, Standard Deviation, Min, Max
 
 Entropy
 
-GLCM:
+GLCM Contrast
 
-Contrast
+GLCM Energy
 
-Energy
+GLCM Homogeneity
 
-Homogeneity
+GLCM Correlation
 
-Correlation
+GLCM Dissimilarity
 
-Dissimilarity
+GLCM ASM
 
-ASM
+🔹 3. Deep Feature Extraction
 
-These texture features are commonly used in radiographic analysis.
+EfficientNetB0
 
-⚙️ Setup & Installation
+Pretrained on ImageNet
 
-Clone the repo:
+Feature map → GlobalAveragePooling2D
 
-git clone https://github.com/YOUR_USERNAME/chest-xray-hybrid-model.git
-cd chest-xray-hybrid-model
+🔹 4. Hybrid Feature Fusion
 
+Deep + Classical features are concatenated and passed through:
 
-Install required packages:
+Dense(128)
 
-pip install -r requirements.txt
+Dropout(0.3)
 
+Output layer with Sigmoid activation
 
-Requirements include:
-
-TensorFlow
-
-scikit-learn
-
-scikit-image
-
-numpy
-
-matplotlib
-
-seaborn
-
-tqdm
-
-🧪 How to Use
-
-Place the dataset inside Google Drive:
-
-MyDrive/chest_xray/train
-MyDrive/chest_xray/val
-MyDrive/chest_xray/test
-
-
-Open the notebook:
-
-hybrid_pneumonia_detection.ipynb
-
-
-Run all cells sequentially.
+🧬 Model Architecture
+Image Input → EfficientNetB0 → GAP → Deep Features
+                                 ↓
+                   Classical Texture Features
+                                 ↓
+                       Concatenate → Dense → Output
 
 🏋️ Training
 
-The model trains using:
+Optimizer: Adam (1e-4)
 
-Adam optimizer
+Loss: Binary Cross Entropy
 
-Binary cross-entropy loss
+Metrics: Accuracy, AUC
 
-Class weights (balanced)
+Class balancing using compute_class_weight()
 
 Batch size: 32
 
-Image size: 224×224
+Epochs: 10–20
 
-Epochs: 10–20 recommended
+📈 Evaluation Metrics
 
-📊 Evaluation
+The model is evaluated using:
 
-Metrics computed:
+✔ Accuracy
 
-Accuracy
+✔ Precision
 
-Precision
+✔ Recall
 
-Recall
+✔ F1-score
 
-F1-Score
+✔ Confusion Matrix
 
-AUC (Area Under ROC)
+✔ ROC Curve + AUC
 
-Confusion Matrix
+✔ Prediction Distribution
 
-Predictions:
+All visualizations are included in the notebook.
 
-preds = model.predict(test_seq).ravel()
+📉 Visualizations
 
-🎨 Visualizations
+This project provides:
 
-The code automatically generates:
+🔹 Confusion Matrix
+🔹 ROC Curve
+🔹 Training Accuracy/Loss Curves
+🔹 Histogram of Prediction Probabilities
+🔹 Misclassified Sample Images
 
-✔ Confusion Matrix Heatmap
-✔ ROC Curve
-✔ Training Accuracy Curve
-✔ Training Loss Curve
-✔ Histogram of Predictions
-✔ Misclassified Image Examples
+These help analyze model performance and error patterns.
 
-Example:
+📁 Project Structure
+├── hybrid_pneumonia_detection.ipynb
+├── README.md
+├── requirements.txt
+├── utils/
+├── saved_models/
+└── figures/
 
-sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
+🚀 How to Run
+
+Download the Kaggle dataset
+
+Place it in Google Drive:
+
+MyDrive/chest_xray/
+    train/
+    val/
+    test/
 
 
-These figures help in discussing performance in the research paper.
+Open the notebook in Google Colab
 
-🏆 Results
+Run all cells sequentially
 
-(Replace with your actual numbers after training.)
+View evaluation metrics and generated plots
+
+🧾 Results (Add your values here)
 
 Accuracy: XX.X%
 
@@ -237,41 +172,14 @@ F1 Score: XX.X%
 
 AUC: 0.XXX
 
-The hybrid model typically improves robustness compared to pure CNNs.
-
-📁 Folder Structure
-.
-├── hybrid_pneumonia_detection.ipynb
-├── README.md
-├── requirements.txt
-├── saved_models/
-├── figures/
-└── utils/
-
-🔮 Future Work
-
-Add Grad-CAM visualization
-
-Use EfficientNetB3/B4 for deeper features
-
-Implement attention-based fusion
-
-Add explainable AI (XAI) module
-
-Deploy model as a web or mobile app
-
 📜 License
 
 This project is licensed under the MIT License.
 
-📖 Citation
+🙌 Acknowledgments
 
-If you use this project, please cite:
+Dataset by Paul Mooney, Kaggle
 
-@article{your2025pneumonia,
-  title={Hybrid CNN + Classical Texture Features for Pneumonia Detection from Chest X-rays},
-  author={Your Name},
-  year={2025},
-  journal={GitHub Repository},
-  url={https://github.com/YOUR_USERNAME/chest-xray-hybrid-model}
-}
+EfficientNet by Tan & Le (Google Brain)
+
+scikit-image for classical feature extraction

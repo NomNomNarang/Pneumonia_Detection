@@ -8,11 +8,8 @@ Pneumonia is a critical respiratory illness that requires fast and accurate diag
 This project proposes a Hybrid Deep Learning architecture that combines:
 
 EfficientNetB0 (pretrained CNN) → deep feature extraction
-
 Handcrafted Classical Features (GLCM texture + statistical features) → local pattern analysis
-
 Feature Fusion for stronger, more explainable predictions
-
 The model classifies chest X-ray images into Normal or Pneumonia.
 
 📂 Dataset

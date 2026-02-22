@@ -1,4 +1,4 @@
-<h1><b>HYBRID PNEUMONIA DETECTION MODEL</b></h1>
+<h1><b>PNEUMONIA DETECTION MODEL</b></h1>
 
 <p align="center"> <b>EfficientNetB0 + Classical Texture Features (GLCM)</b><br> A hybrid deep learning system for accurate Pneumonia detection from chest X-rays. </p> <p align="center"> <img src="https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge"> <img src="https://img.shields.io/badge/TensorFlow-2.x-orange?style=for-the-badge"> <img src="https://img.shields.io/badge/Keras-DeepLearning-red?style=for-the-badge"> <img src="https://img.shields.io/badge/Model-Hybrid%20CNN%20%2B%20GLCM-green?style=for-the-badge"> <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge"> </p>
 

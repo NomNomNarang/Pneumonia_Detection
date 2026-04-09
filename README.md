@@ -1,9 +1,7 @@
-<div align="center">
-
 # 🫁 Pneumonia Detection from Chest X-Rays
-
+<div align="center">
 ### Hybrid EfficientNetV2-S + GLCM with Attention Fusion, Uncertainty Awareness, and Calibrated Decision-Making
-
+       
 *A clinically-inspired AI system focused on reliability, interpretability, and real-world deployment.*
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square&logo=python)
@@ -176,6 +174,21 @@ jupyter notebook notebooks/Pneumoniadetection.ipynb
 5. Multi-class classification
 These are fused using an attention mechanism.
 
+---
+
+## 📌 Conclusion
+
+This project demonstrates that combining deep representations with handcrafted texture features, along with proper calibration and uncertainty estimation, can lead to more reliable medical AI systems.
+
+It highlights the importance of:
+- moving beyond accuracy as the only metric  
+- incorporating uncertainty into predictions  
+- designing models with real-world constraints in mind  
+
+---
+
 <div align="center">
-       Building AI that not only predicts, but knows when it might be wrong.
+
+**Toward trustworthy and interpretable AI for healthcare.**
+
 </div>

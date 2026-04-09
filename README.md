@@ -57,7 +57,7 @@ This is not just a classifier. It is a **decision-support system prototype**.
 <div align="center">
       
 <img src="modelarch.png" width="800"/>
-       The model dynamically decides how much to rely on each feature type.
+<p> The model dynamically decides how much to rely on each feature type. </p>
 </div>
 
 

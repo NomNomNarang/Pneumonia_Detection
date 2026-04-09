@@ -1,6 +1,7 @@
 # 🫁 Pneumonia Detection from Chest X-Rays
 <div align="center">
-### Hybrid EfficientNetV2-S + GLCM with Attention Fusion, Uncertainty Awareness, and Calibrated Decision-Making
+       
+## Hybrid EfficientNetV2-S + GLCM with Attention Fusion, Uncertainty Awareness, and Calibrated Decision-Making
        
 *A clinically-inspired AI system focused on reliability, interpretability, and real-world deployment.*
 

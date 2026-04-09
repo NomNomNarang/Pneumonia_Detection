@@ -1,5 +1,4 @@
 # 🫁 Pneumonia Detection from Chest X-Rays
-<div align="center">
        
 ## Hybrid EfficientNetV2-S + GLCM with Attention Fusion, Uncertainty Awareness, and Calibrated Decision-Making
        
@@ -10,7 +9,6 @@
 ![EfficientNetV2-S](https://img.shields.io/badge/EfficientNetV2--S-ImageNet-yellow?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-</div>
 
 ---
 
@@ -56,7 +54,9 @@ This is not just a classifier. It is a **decision-support system prototype**.
 ---
 
 ## 🧠 Model Architecture
+<div align="center">
 <img src="modelarch.png" width="600"/>
+</div>
 
 
 The model dynamically decides how much to rely on each feature type.

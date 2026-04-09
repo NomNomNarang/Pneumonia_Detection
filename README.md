@@ -123,6 +123,23 @@ Finds optimal threshold balancing sensitivity and specificity.
 
 ## 📸 Visual Outputs
 
+## 📈 Training Analysis
+<img src="training_curves.png" width="600"/>
+
+## 📊 Results
+<img src="roc.png" width="600"/>
+
+## False Positive Rate
+<img src="false.png" width="600"/>
+
+## ⚠️Monte Carlo Dropout and Uncertainty
+<img src="mc&uncertainty.png" width="600"/>
+
+## 🔍 Explainability (Grad-CAM)
+<img src="Gradcam.png" width="600"/>
+
+## 📈 Prediction 
+<img src="prediction.png" width="600"/>
 
 ---
 
@@ -159,3 +176,6 @@ jupyter notebook notebooks/Pneumoniadetection.ipynb
 5. Multi-class classification
 These are fused using an attention mechanism.
 
+<div align="center">
+       Building AI that not only predicts, but knows when it might be wrong.
+</div>

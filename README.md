@@ -55,11 +55,11 @@ This is not just a classifier. It is a **decision-support system prototype**.
 
 ## 🧠 Model Architecture
 <div align="center">
-<img src="modelarch.png" width="600"/>
+      
+<img src="modelarch.png" width="800"/>
+       The model dynamically decides how much to rely on each feature type.
 </div>
 
-
-The model dynamically decides how much to rely on each feature type.
 
 ---
 
